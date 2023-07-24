@@ -1,0 +1,128 @@
+//** Implementing a Stack using an Array  **//
+#include<stdio.h>
+
+#define MAX 10
+
+
+
+int stack[MAX], top=-1;
+
+int push(int x);
+
+int pop();
+
+
+
+int push(int x)
+
+{
+
+	if(top==MAX-1)
+
+	printf("\n!!! Strack Overflow !!!");
+
+	else
+
+	stack[++top] = x;
+
+}
+
+int pop()
+
+{
+
+	if(top==-1)
+
+	{
+
+		printf("\n!!! Stack Underflow !!!");
+
+		return 0;
+
+	}
+
+	else
+
+	return stack[top--];
+
+}
+
+int display()
+
+{
+
+	int i;
+
+	if(top==-1)
+
+	{
+
+		printf("\n!!! Stack Underflow !!!");
+
+		return 0;
+
+	}
+
+	else
+
+	{
+
+		printf("Status of elements in stack: ");
+
+		for(i=top;i>=0;i--)
+
+		{
+
+			printf("%d\n",stack[i]);
+
+		}
+
+	}
+
+}
+
+
+
+int main()
+
+{
+
+	int val, prompt ;
+
+	do{
+
+		printf("\n Press <1> To Push data, <2> To Pop data, <3> To display status, <4> To End: ");
+
+		scanf("%d",&prompt);
+
+		switch(prompt)
+
+		{
+
+			case 1: printf("Enter value to push:");
+
+					scanf("%d",&val);
+
+					push(val);
+
+					break ;
+
+			case 2: printf("\n Popped value %d", pop() );
+
+					break;
+
+			case 3: printf(display() );	
+
+					break;
+
+			case 4:	break;
+
+			default: printf("\nEnter Correct Choice: ");
+
+		}
+
+	}
+
+	while(prompt!=0);
+
+}
